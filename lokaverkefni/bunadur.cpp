@@ -42,33 +42,36 @@ void Bunadur::setVerd(int verd) {
 }
 
 void Bunadur::prenta() {
-
+    std::cout << this->getType() << "\t" << std::to_string(this->nr)
+    << "\t" << std::to_string(this->getStadsetning())
+    << "\t" << std::to_string(this->verd) << "\n";
 }
 
-Bunadur::~Bunadur() {
-
+std::string Bunadur::getType() {
+    return "Bunadur";
 }
+
 
 bool Bunadur::operator==(Bunadur& hitt) {
-
+    return this->getNR() == hitt.getNR();
 }
 
 bool Bunadur::operator!=(Bunadur& hitt) {
-
+    return !(*this == hitt);
 }
 
 bool Bunadur::operator<(Bunadur& hitt) {
-
+    return this->getNR() < hitt.getNR();
 }
 
 bool Bunadur::operator>(Bunadur& hitt) {
-
+    return hitt < *this;
 }
 
 bool Bunadur::operator<=(Bunadur& hitt) {
-
+    return !(*this > hitt);
 }
 
 bool Bunadur::operator>=(Bunadur& hitt) {
-
+    return !(*this < hitt);
 }

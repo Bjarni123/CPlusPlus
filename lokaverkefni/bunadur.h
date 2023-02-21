@@ -18,7 +18,9 @@ class Bunadur {
         int getVerd();
         void setVerd(int verd);
         virtual void prenta();
+        virtual std::string getType();
         virtual ~Bunadur();
+
 
         bool operator==(Bunadur& hitt);
         bool operator!=(Bunadur& hitt);
