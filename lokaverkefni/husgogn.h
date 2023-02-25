@@ -28,9 +28,13 @@ class Husgogn {
         void skraStol(int nr, int stadsetning, int verd, bool snuningur);
         void skraTolvu(int nr, int stadsetning, int verd, int kaupar);
 
+        bool uppfaeraStadsetningu(int nr, int stadsetning);
+
         bool eydaBunadi(int nr);
         bool skodaBunad(int nr);
 
+        void prentaBunadIHusiHaedStofu(int stadsetning);
+        void prentaBunadIHusi(int hus);
         void prentaAllt();
         void prentaBord();
         void prentaSkjavarpa();

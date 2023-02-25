@@ -118,6 +118,21 @@ void Husgogn::skraTolvu(int nr, int stadsetning, int verd, int kaupar) {
     this->skraBunad(new Tolva(nr, stadsetning, verd, kaupar));
 }
 
+bool Husgogn::uppfaeraStadsetningu(int nr, int stadsetning) {
+    int idx = this->hash(nr);
+    BunadurNode* current = this->heads[idx];
+    while (current) {
+        if (current->bunadurinn->getNR() == nr) {
+            current->bunadurinn->setStadsetning(stadsetning);
+            return true;
+        }
+        current = current->next;
+    }
+    return false; 
+}
+
+
+
 bool Husgogn::eydaBunadi(int nr) {
     int idx = this->hash(nr);
     if (this->heads[idx]) {
@@ -154,6 +169,33 @@ bool Husgogn::skodaBunad(int nr) {
         current = current->next;
     }
     return false;
+}
+
+void Husgogn::prentaBunadIHusiHaedStofu(int stadsetning) {
+    for (int idx = 0; idx < this->staerd; idx++) {
+        BunadurNode* current = this->heads[idx];
+        std::cout << "Bucket: " << idx << "\n";
+        while (current) {
+            if (current->bunadurinn->getStadsetning() == stadsetning) {
+                current->bunadurinn->prenta();
+            }
+            current = current->next;
+        }
+    }
+}
+
+
+void Husgogn::prentaBunadIHusi(int hus) {
+    for (int idx = 0; idx < this->staerd; idx++) {
+        BunadurNode* current = this->heads[idx];
+        std::cout << "Bucket: " << idx << "\n";
+        while (current) {
+            if (current->bunadurinn->getHus() == hus) {
+                current->bunadurinn->prenta();
+            }
+            current = current->next;
+        }
+    }
 }
 
 void Husgogn::prentaAllt() {

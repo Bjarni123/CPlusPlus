@@ -1,3 +1,34 @@
-Hvernig á að raða listanum
+Það sem á eftir:
+    GERA VIDEO!
+    gera getHus, getHaed og getHerbergi BUIÐ!!!
+    saekja bunad SLEPPA!!!
+    uppfaera stadsetningu bunad DONE!!!
+    prenta út allan búnað í ákveðnu húsi DONE!!!
+    Litir
+    Skráavinnsla, hægt er að skrifa listann í skrár og lesa í listann úr skrá. (10 stig)
+    Prenta á skjá búnað í ákveðinni stofu og ákveðinni hæð í ákveðnu húsi. (5 stig)
+    Klára uppfaera fallið, svo það endurraði í listann
 
-Hvernig er best að hafa hashið
+Auka hlutir:
+    gera flott hash fall
+    passa að ekki sama id á tvem husgognum í listanum
+    Getað uppfært allar upplýsingar
+
+
+
+Skipanir:
+    save
+    continue
+    skra bunad nr stadsetning verd auka 
+    help
+    uppfaera nr stadsetning
+    eyda nr
+    prenta nr
+    prenta herbergi stadsetning
+    prenta husi hus
+    prenta allt
+    prenta bord
+    prenta skjavarpa
+    prenta tolvu
+    prenta Stol
+    

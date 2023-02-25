@@ -11,6 +11,12 @@ class Bunadur {
     public:
         Bunadur();
         Bunadur(int nr, int stadsetning, int verd);
+        int getHus();
+        void setHus(int hus);
+        int getHaed();
+        void setHaed(int haed);
+        int getHerbergi();
+        void setHerbergi(int herbergi);
         int getNR();
         void setNR(int nr);
         int getStadsetning();

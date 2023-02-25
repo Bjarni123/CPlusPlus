@@ -15,6 +15,30 @@ Bunadur::Bunadur(int nr, int stadsetning, int verd) {
     this->verd = verd;
 }
 
+int Bunadur::getHus() {
+    return stadsetning[0];
+}
+
+void Bunadur::setHus(int hus) {
+    this->stadsetning[0] = hus;
+}
+
+int Bunadur::getHaed() {
+    return stadsetning[1];
+}
+
+void Bunadur::setHaed(int haed) {
+    this->stadsetning[1] = haed;
+}
+
+int Bunadur::getHerbergi() {
+    return stadsetning[2];
+}
+
+void Bunadur::setHerbergi(int herbergi) {
+    this->stadsetning[2] = herbergi;
+}
+
 int Bunadur::getNR() {
     return this->nr;
 }
