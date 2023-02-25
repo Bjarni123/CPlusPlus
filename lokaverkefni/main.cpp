@@ -16,7 +16,7 @@ using namespace rlutil;
 int main() {
     Husgogn hg;
     string inntak, skipun, tegund;
-    int nrIT, stadsetningIT, verdIT, aukaIT, husIT;
+    int nrIT, stadsetningIT, verdIT, aukaIT, husIT, nr2IT;
 
     saveDefaultColor();
 
@@ -59,6 +59,7 @@ int main() {
         } else if (skipun == "countinue") {
             cout << "countinue\n";
         } else if (skipun == "prenta") {
+            cout << "\n";
             ss >> tegund;
             if (tegund == "allt") {
                 hg.prentaAllt();
@@ -77,26 +78,38 @@ int main() {
                 ss >> stadsetningIT;
                 hg.prentaBunadIHusiHaedStofu(stadsetningIT);
             } else {
-                ss >> nrIT;
+                nrIT = stoi(tegund);
                 if (!hg.skodaBunad(nrIT)) {
                     cout << "Fann ekki búnað með númerinu: " << nrIT << "\n";
                 }
             }
         } else if (skipun == "eyda") {
+            cout << "\n";
             ss >> nrIT;
             if (!hg.eydaBunadi(nrIT)) {
                 cout << "Fann ekki búnað með númerinu: " << nrIT << "\n";
             }
         } else if (skipun == "uppfaera") {
-            // uppfaera nr stadsetning
-            ss >> nrIT >> stadsetningIT;
-            hg.uppfaeraStadsetningu(nrIT, stadsetningIT);
+            ss >> tegund;
+            if (tegund == "stadsetningu") {
+                ss >> nrIT >> stadsetningIT;
+                hg.uppfaeraStadsetningu(nrIT, stadsetningIT);
+            } else if (tegund == "numer") {
+                ss >> nrIT >> nr2IT;
+                hg.uppfaeraIndex(nrIT, nr2IT);
+            } else if (tegund == "verd") {
+                ss >> nrIT >> verdIT;
+                hg.uppfaeraVerd(nrIT, verdIT);
+            } else {
+                cout << "Skil ekki skipuninna " << tegund << "!\n";
+            }
         } else if (skipun == "haetta") {
-            cout << "Takk fyrir\n";
+            cout << "\nTakk fyrir\n";
         } else {
             cout << "Skil ekki skipuninna " << skipun << "!!!\n";
         }
         
+    cout << "\n";
     } while (skipun != "haetta");
 
     resetColor();

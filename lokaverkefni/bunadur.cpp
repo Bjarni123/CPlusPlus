@@ -66,7 +66,7 @@ void Bunadur::setVerd(int verd) {
 }
 
 void Bunadur::prenta() {
-    std::cout << this->getType() << "\t" << std::to_string(this->nr)
+    std::cout << this->getType() << "\t\t" << std::to_string(this->nr)
     << "\t" << std::to_string(this->getStadsetning())
     << "\t" << std::to_string(this->verd) << "\n";
 }
@@ -101,5 +101,5 @@ bool Bunadur::operator>=(Bunadur& hitt) {
 }
 
 Bunadur::~Bunadur() {
-    
+
 }

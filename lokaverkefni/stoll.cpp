@@ -5,7 +5,7 @@ Stoll::Stoll() {
 }
 
 Stoll::Stoll(int nr, int stadsetning, int verd, bool snuningur) : Bunadur(nr, stadsetning, verd) {
-    this->snuningur = false;
+    this->snuningur = snuningur;
 }
 
 bool Stoll::getSnuningur() {
@@ -23,7 +23,7 @@ void Stoll::prenta() {
     } else {
         jaEdaNei = "Nei";
     }
-    std::cout << this->getType() << "\t" << std::to_string(this->nr)
+    std::cout << this->getType() << "\t\t" << std::to_string(this->nr)
     << "\t" << std::to_string(this->getStadsetning())
     << "\t" << std::to_string(this->getVerd())
     << "\t" << jaEdaNei << "\n";

@@ -123,7 +123,82 @@ bool Husgogn::uppfaeraStadsetningu(int nr, int stadsetning) {
     BunadurNode* current = this->heads[idx];
     while (current) {
         if (current->bunadurinn->getNR() == nr) {
-            current->bunadurinn->setStadsetning(stadsetning);
+            if (current->bunadurinn->getType() == "Bord") {
+                Bord* b = (Bord*)current->bunadurinn;
+                int tempNr = b->getNR();
+                int tempVerd = b->getVerd();
+                int tempPlass = b->getPlass();
+                this->eydaBunadi(nr);
+                this->skraBord(tempNr, stadsetning, tempVerd, tempPlass);
+            } else if (current->bunadurinn->getType() == "Stoll") {
+                Stoll* b = (Stoll*)current->bunadurinn;
+                int tempNr = b->getNR();
+                int tempVerd = b->getVerd();
+                bool tempSnun = b->getSnuningur();
+                this->eydaBunadi(nr);
+                this->skraStol(tempNr, stadsetning, tempVerd, tempSnun);
+            } else if (current->bunadurinn->getType() == "Skjavarpi") {
+                Skjavarpi* b = (Skjavarpi*)current->bunadurinn;
+                int tempNr = b->getNR();
+                int tempVerd = b->getVerd();
+                int tempLumens = b->getLumens();
+                this->eydaBunadi(nr);
+                this->skraSkjavarpa(tempNr, stadsetning, tempVerd, tempLumens);
+            } else if (current->bunadurinn->getType() == "Tolva") {
+                Tolva* b = (Tolva*)current->bunadurinn;
+                int tempNr = b->getNR();
+                int tempVerd = b->getVerd();
+                int tempKaupar = b->getKaupar();
+                this->eydaBunadi(nr);
+                this->skraTolvu(tempNr, stadsetning, tempVerd, tempKaupar);
+            } else {
+                std::cout << "Villa kom fram. Reyndu aftur\n";
+                return false;
+            }
+            return true;
+        }
+        current = current->next;
+    }
+    return false;  
+}
+
+bool Husgogn::uppfaeraIndex(int nr, int nyttNr) {
+    int idx = this->hash(nr);
+    BunadurNode* current = this->heads[idx];
+    while (current) {
+        if (current->bunadurinn->getNR() == nr) {
+            if (current->bunadurinn->getType() == "Bord") {
+                Bord* b = (Bord*)current->bunadurinn;
+                int tempVerd = b->getVerd();
+                int tempStadsetning = b->getStadsetning();
+                int tempPlass = b->getPlass();
+                this->eydaBunadi(nr);
+                this->skraBord(nyttNr, tempStadsetning, tempVerd, tempPlass);
+            } else if (current->bunadurinn->getType() == "Stoll") {
+                Stoll* b = (Stoll*)current->bunadurinn;
+                int tempVerd = b->getVerd();
+                int tempStadsetning = b->getStadsetning();
+                bool tempSnun = b->getSnuningur();
+                this->eydaBunadi(nr);
+                this->skraStol(nyttNr, tempStadsetning, tempVerd, tempSnun);
+            } else if (current->bunadurinn->getType() == "Skjavarpi") {
+                Skjavarpi* b = (Skjavarpi*)current->bunadurinn;
+                int tempVerd = b->getVerd();
+                int tempStadsetning = b->getStadsetning();
+                int tempLumens = b->getLumens();
+                this->eydaBunadi(nr);
+                this->skraSkjavarpa(nyttNr, tempStadsetning, tempVerd, tempLumens);
+            } else if (current->bunadurinn->getType() == "Tolva") {
+                Tolva* b = (Tolva*)current->bunadurinn;
+                int tempVerd = b->getVerd();
+                int tempStadsetning = b->getStadsetning();
+                int tempKaupar = b->getKaupar();
+                this->eydaBunadi(nr);
+                this->skraTolvu(nyttNr, tempStadsetning, tempVerd, tempKaupar);
+            } else {
+                std::cout << "Villa kom fram. Reyndu aftur\n";
+                return false;
+            }
             return true;
         }
         current = current->next;
@@ -131,7 +206,49 @@ bool Husgogn::uppfaeraStadsetningu(int nr, int stadsetning) {
     return false; 
 }
 
-
+bool Husgogn::uppfaeraVerd(int nr, int verd) {
+    int idx = this->hash(nr);
+    BunadurNode* current = this->heads[idx];
+    while (current) {
+        if (current->bunadurinn->getNR() == nr) {
+            if (current->bunadurinn->getType() == "Bord") {
+                Bord* b = (Bord*)current->bunadurinn;
+                int tempNr = b->getNR();
+                int tempStadsetning = b->getStadsetning();
+                int tempPlass = b->getPlass();
+                this->eydaBunadi(nr);
+                this->skraBord(tempNr, tempStadsetning, verd, tempPlass);
+            } else if (current->bunadurinn->getType() == "Stoll") {
+                Stoll* b = (Stoll*)current->bunadurinn;
+                int tempNr = b->getNR();
+                int tempStadsetning = b->getStadsetning();
+                bool tempSnun = b->getSnuningur();
+                this->eydaBunadi(nr);
+                this->skraStol(tempNr, tempStadsetning, verd, tempSnun);
+            } else if (current->bunadurinn->getType() == "Skjavarpi") {
+                Skjavarpi* b = (Skjavarpi*)current->bunadurinn;
+                int tempNr = b->getNR();
+                int tempStadsetning = b->getStadsetning();
+                int tempLumens = b->getLumens();
+                this->eydaBunadi(nr);
+                this->skraSkjavarpa(tempNr, tempStadsetning, verd, tempLumens);
+            } else if (current->bunadurinn->getType() == "Tolva") {
+                Tolva* b = (Tolva*)current->bunadurinn;
+                int tempNr = b->getNR();
+                int tempStadsetning = b->getStadsetning();
+                int tempKaupar = b->getKaupar();
+                this->eydaBunadi(nr);
+                this->skraTolvu(tempNr, tempStadsetning, verd, tempKaupar);
+            } else {
+                std::cout << "Villa kom fram. Reyndu aftur\n";
+                return false;
+            }
+            return true;
+        }
+        current = current->next;
+    }
+    return false; 
+}
 
 bool Husgogn::eydaBunadi(int nr) {
     int idx = this->hash(nr);

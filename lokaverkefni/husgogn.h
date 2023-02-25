@@ -29,6 +29,8 @@ class Husgogn {
         void skraTolvu(int nr, int stadsetning, int verd, int kaupar);
 
         bool uppfaeraStadsetningu(int nr, int stadsetning);
+        bool uppfaeraIndex(int nr, int nyttNr);
+        bool uppfaeraVerd(int nr, int verd);
 
         bool eydaBunadi(int nr);
         bool skodaBunad(int nr);
