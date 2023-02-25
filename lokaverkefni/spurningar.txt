@@ -25,10 +25,10 @@ Skipanir:
     eyda nr
     prenta nr
     prenta herbergi stadsetning
-    prenta husi hus
+    prenta hus hus
     prenta allt
     prenta bord
     prenta skjavarpa
     prenta tolvu
-    prenta Stol
+    prenta Stola
     

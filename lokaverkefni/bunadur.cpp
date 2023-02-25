@@ -99,3 +99,7 @@ bool Bunadur::operator<=(Bunadur& hitt) {
 bool Bunadur::operator>=(Bunadur& hitt) {
     return !(*this < hitt);
 }
+
+Bunadur::~Bunadur() {
+    
+}

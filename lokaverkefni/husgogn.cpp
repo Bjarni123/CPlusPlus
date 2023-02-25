@@ -174,7 +174,6 @@ bool Husgogn::skodaBunad(int nr) {
 void Husgogn::prentaBunadIHusiHaedStofu(int stadsetning) {
     for (int idx = 0; idx < this->staerd; idx++) {
         BunadurNode* current = this->heads[idx];
-        std::cout << "Bucket: " << idx << "\n";
         while (current) {
             if (current->bunadurinn->getStadsetning() == stadsetning) {
                 current->bunadurinn->prenta();
@@ -188,7 +187,6 @@ void Husgogn::prentaBunadIHusiHaedStofu(int stadsetning) {
 void Husgogn::prentaBunadIHusi(int hus) {
     for (int idx = 0; idx < this->staerd; idx++) {
         BunadurNode* current = this->heads[idx];
-        std::cout << "Bucket: " << idx << "\n";
         while (current) {
             if (current->bunadurinn->getHus() == hus) {
                 current->bunadurinn->prenta();
@@ -201,7 +199,6 @@ void Husgogn::prentaBunadIHusi(int hus) {
 void Husgogn::prentaAllt() {
     for (int idx = 0; idx < this->staerd; idx++) {
         BunadurNode* current = this->heads[idx];
-        std::cout << "Bucket: " << idx << "\n";
         while (current) {
             current->bunadurinn->prenta();
             current = current->next;
