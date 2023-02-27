@@ -5,7 +5,7 @@
 Húsumsjón Tækniskólans hefur beðið þig um skrifa hugbúnað til að halda utan um ýmsan búnað sem skólinn á og hvar sá búnaður er staðsettur. 
 
 Allur búnaður hefur auðkenni, verðmæti og staðsetningu:
-- Auðkennið er einkvæm heiltala (ekki sjálfhækkandi (e. auto increment)).
+- Auðkennið er einkvæm heiltala (ekki sjálfhækkandi (e. auto increment)). [x]
 - Verðmætið er í krónum.
 - Staðsetningin fimm stafa samsett heiltala sem samanstendur af húsi, hæð og svo herbergi. Dæmi um staðsetningu er 21206 þar sem fyrstu tveir stafirnir (21) merkir Háteigsvegur aðalhús, þriðja talan (2) merkir önnur hæð og svo síðustu tveir stafirnir (06) merkja stofa nr. 6. Staðsetninguna á að geyma í þriggja staka `char` fylki til að spara pláss en það þarf að vera hægt að vinna með staðsetninguna sem eina tölu.
   - Klasinn þarf að geta tekið inn heiltölu og dreift henni svo í þrjú stök fylkisins.
