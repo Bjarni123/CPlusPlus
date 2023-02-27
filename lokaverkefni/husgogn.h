@@ -43,6 +43,8 @@ class Husgogn {
         void prentaStol();
         void prentaTolvu();
 
+        std::string ollGognIStreng();
+
         ~Husgogn();
         
 };

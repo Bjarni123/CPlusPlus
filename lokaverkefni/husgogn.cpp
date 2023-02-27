@@ -1,7 +1,6 @@
 #include "husgogn.h"
 
 int Husgogn::hash(int nr) {
-    // int hash_gildi = 0;
     return nr % this->staerd;
 }
 
@@ -337,6 +336,48 @@ void Husgogn::prentaStol() {
 
 void Husgogn::prentaTolvu() {
     this->prentaAkvednaTegund("Tolva");
+}
+
+std::string Husgogn::ollGognIStreng(){
+    std::string returnGildi = "";
+    for (int idx = 0; idx < this->staerd; idx++) {
+        BunadurNode* currentStuff = this->heads[idx];
+        while (currentStuff) {
+            if (currentStuff->bunadurinn->getType() == "Bord") {
+                Bord* current = (Bord*)currentStuff->bunadurinn;
+                returnGildi += current->getType() + " " + 
+                std::to_string(current->getNR()) + " " + 
+                std::to_string(current->getStadsetning()) + " " +
+                std::to_string(current->getVerd()) + " " + 
+                std::to_string(current->getPlass()) + "\n";
+            } else if (currentStuff->bunadurinn->getType() == "Stoll") {
+                Stoll* current = (Stoll*)currentStuff->bunadurinn;
+                returnGildi += current->getType() + " " + 
+                std::to_string(current->getNR()) + " " + 
+                std::to_string(current->getStadsetning()) + " " +
+                std::to_string(current->getVerd()) + " " + 
+                std::to_string(current->getSnuningur()) + "\n";
+            } else if (currentStuff->bunadurinn->getType() == "Skjavarpi") {
+                Skjavarpi* current = (Skjavarpi*)currentStuff->bunadurinn;
+                returnGildi += current->getType() + " " + 
+                std::to_string(current->getNR()) + " " + 
+                std::to_string(current->getStadsetning()) + " " +
+                std::to_string(current->getVerd()) + " " + 
+                std::to_string(current->getLumens()) + "\n";
+            } else if (currentStuff->bunadurinn->getType() == "Tolva") {
+                Tolva* current = (Tolva*)currentStuff->bunadurinn;
+                returnGildi += current->getType() + " " + 
+                std::to_string(current->getNR()) + " " + 
+                std::to_string(current->getStadsetning()) + " " +
+                std::to_string(current->getVerd()) + " " + 
+                std::to_string(current->getKaupar()) + "\n";
+            } else {
+                std::cout << "Villa kom fram. Reyndu aftur\n";
+            }
+            currentStuff = currentStuff->next;
+        }
+    }
+    return returnGildi;
 }
 
 Husgogn::~Husgogn() {

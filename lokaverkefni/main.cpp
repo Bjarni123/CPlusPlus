@@ -4,19 +4,69 @@
 #include <cstdlib> // <stdlib.h> fyrir mac
 #include <ctime>
 #include <sstream>
+#include <filesystem>
 
+// https://stackoverflow.com/questions/612097/how-can-i-get-the-list-of-files-in-a-directory-using-c-or-c
 #include <fstream> // filestream
 
 #include "husgogn.h"
 #include "rlutil.h"
 
+// https://stackoverflow.com/questions/612097/how-can-i-get-the-list-of-files-in-a-directory-using-c-or-c
+namespace fs = std::filesystem;
+
 using namespace std;
 using namespace rlutil;
 
+void errorMsg(string message) {
+    setColor(RED);
+    cout << message << "\n";
+    setColor(WHITE);
+}
+
 int main() {
     Husgogn hg;
-    string inntak, skipun, tegund;
+    string inntak, skipun, tegund, path;
     int nrIT, stadsetningIT, verdIT, aukaIT, husIT, nr2IT;
+
+    setColor(MAGENTA);
+
+    // https://stackoverflow.com/questions/612097/how-can-i-get-the-list-of-files-in-a-directory-using-c-or-c
+    // Hér checkea ég hvaða skjöl eru í saves folderinu til þess að prenta þau út.
+    string pathToSaves = "lokaverkefni/saves/";
+    for (const auto & entry : fs::directory_iterator(pathToSaves)) {
+        string daPath = entry.path();
+        cout << daPath.substr(19) << endl;
+    }
+    cout << "Einnig er hægt að búa til þitt eigið skjal með því að einfaldlega skrifa nýja nafnið á skránni\n";
+
+    bool geraLoopu = true;
+
+    do {
+        setColor(BLUE);
+        cout << "\nSláðu inn hvaða skja þú vilt vinna við: ";
+        setColor(WHITE);
+        cin >> path;
+
+        ifstream lesa("lokaverkefni/saves/" + path);
+        if (!lesa) {
+            errorMsg("gat ekki lesið skrá");
+        } else {
+            while (lesa >> tegund >> nrIT >> stadsetningIT >> verdIT >> aukaIT) {
+                if (tegund == "Bord") {
+                    hg.skraBord(nrIT, stadsetningIT, verdIT, aukaIT);
+                } else if (tegund == "Stoll") {
+                    hg.skraStol(nrIT, stadsetningIT, verdIT, aukaIT);
+                } else if (tegund == "Skjavarpi") {
+                    hg.skraSkjavarpa(nrIT, stadsetningIT, verdIT, aukaIT);
+                } else if (tegund == "Tolva") {
+                    hg.skraTolvu(nrIT, stadsetningIT, verdIT, aukaIT);
+                }
+            }
+            geraLoopu = false;
+        }
+        lesa.close();
+    } while (geraLoopu);
 
     saveDefaultColor();
 
@@ -40,24 +90,25 @@ int main() {
             } else if (tegund == "tolvu") {
                 hg.skraTolvu(nrIT, stadsetningIT, verdIT, aukaIT);
             } else if (tegund == "profunargogn") {
-                hg.skraBord(501, 21209, 1000, 4);
-                hg.skraBord(502, 21209, 2000, 2);
-                hg.skraStol(503, 21209, 4000, 0);
-                hg.skraStol(504, 21209, 4000, 0);
-                hg.skraSkjavarpa(505, 10410, 100000, 4000);
-                hg.skraSkjavarpa(506, 21209, 100000, 4000);
-                hg.skraTolvu(507, 21209, 50000, 2019);
-                hg.skraTolvu(508, 21209, 50000, 2019);
-                hg.skraTolvu(509, 21209, 50000, 2019);
-                hg.skraTolvu(510, 21209, 50000, 2019);
+                ifstream lesa("lokaverkefni/saves/profunargogn");
+                if (!lesa) {
+                    errorMsg("gat ekki lesið skrá");
+                } else {
+                    while (lesa >> tegund >> nrIT >> stadsetningIT >> verdIT >> aukaIT) {
+                        if (tegund == "Bord") {
+                            hg.skraBord(nrIT, stadsetningIT, verdIT, aukaIT);
+                        } else if (tegund == "Stoll") {
+                            hg.skraStol(nrIT, stadsetningIT, verdIT, aukaIT);
+                        } else if (tegund == "Skjavarpi") {
+                            hg.skraSkjavarpa(nrIT, stadsetningIT, verdIT, aukaIT);
+                        } else if (tegund == "Tolva") {
+                            hg.skraTolvu(nrIT, stadsetningIT, verdIT, aukaIT);
+                        }
+                    }
+                }
             } else {
-                setColor(RED);
-                cout << "Kann ekki að skrá " << tegund << "!!!\n";
+                errorMsg("Kann ekki að skrá " + tegund);
             }
-        } else if (skipun == "save") {
-            cout << "save\n";
-        } else if (skipun == "countinue") {
-            cout << "countinue\n";
         } else if (skipun == "prenta") {
             cout << "\n";
             ss >> tegund;
@@ -80,33 +131,48 @@ int main() {
             } else {
                 nrIT = stoi(tegund);
                 if (!hg.skodaBunad(nrIT)) {
-                    cout << "Fann ekki búnað með númerinu: " << nrIT << "\n";
+                    errorMsg("Fann ekki búnað með númerinu: " + nrIT);
                 }
             }
         } else if (skipun == "eyda") {
             cout << "\n";
             ss >> nrIT;
             if (!hg.eydaBunadi(nrIT)) {
-                cout << "Fann ekki búnað með númerinu: " << nrIT << "\n";
+                errorMsg("Fann ekki búnað með númerinu: " + nrIT);
             }
         } else if (skipun == "uppfaera") {
             ss >> tegund;
             if (tegund == "stadsetningu") {
                 ss >> nrIT >> stadsetningIT;
-                hg.uppfaeraStadsetningu(nrIT, stadsetningIT);
+                if (!hg.uppfaeraStadsetningu(nrIT, stadsetningIT)) {
+                    errorMsg("Fann ekki búnað með númerið: " + to_string(nrIT));
+                }
             } else if (tegund == "numer") {
                 ss >> nrIT >> nr2IT;
-                hg.uppfaeraIndex(nrIT, nr2IT);
+                if (!hg.uppfaeraIndex(nrIT, nr2IT)) {
+                    errorMsg("Fann ekki búnað með númerið: " + to_string(nrIT));
+                }
             } else if (tegund == "verd") {
                 ss >> nrIT >> verdIT;
-                hg.uppfaeraVerd(nrIT, verdIT);
+                if (!hg.uppfaeraVerd(nrIT, verdIT)) {
+                    errorMsg("Fann ekki búnað með númerið: " + to_string(nrIT));
+                }
             } else {
-                cout << "Skil ekki skipuninna " << tegund << "!\n";
+                errorMsg("Skil ekki skipuninna " + tegund);
             }
         } else if (skipun == "haetta") {
+            setColor(GREEN);
             cout << "\nTakk fyrir\n";
+            setColor(WHITE);
+            ofstream skrifa("lokaverkefni/saves/" + path);
+            if (!skrifa) {
+                errorMsg("gat ekki opnað skrá");
+            } else {
+                skrifa << hg.ollGognIStreng();
+            }
+            skrifa.close();
         } else {
-            cout << "Skil ekki skipuninna " << skipun << "!!!\n";
+            errorMsg("Skil ekki skipuninna " + skipun);
         }
         
     cout << "\n";

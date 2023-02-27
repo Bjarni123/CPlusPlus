@@ -17,10 +17,12 @@ Auka hlutir:
 Hlutir eftir að gera 25/2:
     flottara hash fall
     passa að ekki sama id
-    getað uppfært auka upplýsingar
-    skraarvinnsla
     Litir
     gera VIDEO
+    starta upp save og save allt í enda
+
+
+Ef það finnur ekki numer þegar verið er að uppfaera
 
 Skipanir:
     save
