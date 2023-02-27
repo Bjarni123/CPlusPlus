@@ -22,7 +22,7 @@ Gagnaklasar:
 - Gerðu getters og setters fyrir allar gagnabreytur klasanna. :heavy_check_mark:
 - Klasarnir þurfa að geta prentað sjálfa sig snyrtilega á skjáinn. :heavy_check_mark:
 - Útfærðu þinn eigin listaklasa sem heldur utan um búnað (velja eina útfærslu): 
-  - Kviklegt fylki (e. dynamic array), gefur engin aukastig ofan á grunnkröfur.
+  - Kviklegt fylki (e. dynamic array), gefur engin aukastig ofan á grunnkröfur. :x:
   - Keðjulisti (e. linked list), gefur 10 aukastig ofan á grunnkröfur. :heavy_check_mark:
   - Tætitafla (e. hash table, hash map, dictionary), gefur 20 aukastig ofan á grunnkröfur. :heavy_check_mark:
 - Gerðu notendaviðmót þar sem hægt er að gera eftirfarandi:
