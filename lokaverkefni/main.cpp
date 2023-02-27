@@ -31,12 +31,13 @@ int main() {
 
     setColor(MAGENTA);
 
+    cout << "Skjöl:\n";
     // https://stackoverflow.com/questions/612097/how-can-i-get-the-list-of-files-in-a-directory-using-c-or-c
     // Hér checkea ég hvaða skjöl eru í saves folderinu til þess að prenta þau út.
     string pathToSaves = "lokaverkefni/saves/";
     for (const auto & entry : fs::directory_iterator(pathToSaves)) {
         string daPath = entry.path();
-        cout << daPath.substr(19) << endl;
+        cout << "\t" << daPath.substr(19) << endl;
     }
     cout << "Einnig er hægt að búa til þitt eigið skjal með því að einfaldlega skrifa nýja nafnið á skránni\n";
 
@@ -44,7 +45,7 @@ int main() {
 
     do {
         setColor(BLUE);
-        cout << "\nSláðu inn hvaða skja þú vilt vinna við: ";
+        cout << "\nSláðu inn hvaða skjal þú vilt vinna við: ";
         setColor(WHITE);
         cin >> path;
 
@@ -171,6 +172,26 @@ int main() {
                 skrifa << hg.ollGognIStreng();
             }
             skrifa.close();
+        } else if (skipun == "help") {
+            setColor(CYAN);
+            cout << "\n";
+            cout << "           Skipun                              Útskýring                                   Dæmi\n";
+            cout << "skra bunad nr stadsetning verd auka    Skráir búnað í listann                      skra stol 1 21209 6000 0\n"; 
+            cout << "help                                   Prenta út skipanir                          help\n";
+            cout << "uppfaera stadsetningu nr stadsetning   Uppfærir stadsetningu búnað.                uppfaera stadsetningu 1 21406\n";
+            cout << "uppfaera numer nr nyttNr               Uppfærir númerið á búnaði.                  uppfaera numer 1 2\n";
+            cout << "uppfaera verd nr nyttVerd              Uppfærir verd á búnaði.                     uppfaera verd 2 9000\n";
+            cout << "eyda nr                                Eyðir búnaði úr listanum.                   eyda 2\n";
+            cout << "prenta nr                              Prentar út búnað.                           prenta 2\n";
+            cout << "prenta herbergi stadsetning            Prentar út allan búnað í ákveðnu herbergi.  prenta herbergi 21406\n";
+            cout << "prenta hus hus                         Prentar út allan búnað í ákveðnu húsi.      prenta hús 21\n";
+            cout << "prenta allt                            Prentar allan búnað.                        prenta allt\n";
+            cout << "prenta bord                            Prentar út öll borð.                        prenta bord\n";
+            cout << "prenta skjavarpa                       Prentar út alla skjávarpa.                  prenta skjavarpa\n";
+            cout << "prenta tolvur                          Prentar út allar tölvur.                    prenta tolvur\n";
+            cout << "prenta stola                           Prentar út alla stóla.                      prenta stola\n";
+            cout << "haetta                                 Hættir í forriti og savear skjalid.         Haetta\n";
+            setColor(WHITE);
         } else {
             errorMsg("Skil ekki skipuninna " + skipun);
         }

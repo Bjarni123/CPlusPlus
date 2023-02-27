@@ -39,6 +39,6 @@ Skipanir:
     prenta allt
     prenta bord
     prenta skjavarpa
-    prenta tolvu
-    prenta Stola
+    prenta tolvur
+    prenta stola
     
