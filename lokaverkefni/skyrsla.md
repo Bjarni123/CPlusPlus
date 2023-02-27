@@ -1,8 +1,4 @@
-## Verkefnið
-
-### Búnaðarlisti Tækniskólans
-
-Húsumsjón Tækniskólans hefur beðið þig um skrifa hugbúnað til að halda utan um ýmsan búnað sem skólinn á og hvar sá búnaður er staðsettur. 
+## Verkefnið 
 
 Allur búnaður hefur auðkenni, verðmæti og staðsetningu:
 - Auðkennið er einkvæm heiltala (ekki sjálfhækkandi (e. auto increment)). :heavy_check_mark:
@@ -47,3 +43,12 @@ Gagnaklasar:
 - Prenta á skjá búnað af ákveðinni gerð, t.d. alla stóla. (5 stig) :heavy_check_mark:
 - Útfæra afritunarsmið (e. copy constructor) og gildisveitingavirkjann (e. assignment operator) fyrir listaklasann. (5 stig) :heavy_check_mark:
 - Annað sem ykkur dettur í hug í samráði við kennara. :heavy_check_mark:
+
+### Fleirri Aukakröfur
+- Hægt að uppfæra allar upplýsingar nema aukaupplýsingarnar. (snúningur, lumens, pláss og kaupár) :heavy_check_mark:
+- help fall sem gefur lýsingar fyrir allar skipanir. :heavy_check_mark:
+- Þegar er byrjað forrit þá er prent út öll skjöl sem eru til 
+  - Valið er skjal til þess að vinna með þegar er byrjað forritið. :heavy_check_mark:
+  - Þegar forritinu er lokað er saveað skjalið fyrir framtíðar notkun. :heavy_check_mark:
+- Ég ætlaði að checkea þegar var bætt inn í listann hvort id-ið væri þegar í listanum :x:
+- Gerða fallegra hash fall. Náði því ekki því það var viljað að væri hægt að finna eitthvern búnað út frá ID og fann bara fallegri hash föll þegar var notað fleirri en eina breytu. :x: 
