@@ -32,7 +32,6 @@ Gagnaklasar:
   - Það þarf að vera hægt að prenta út ákveðinn búnað útfrá id. :heavy_check_mark:
   - það þarf að vera hægt að prenta á skjá lista með öllum búnaði. :heavy_check_mark:
   - það þarf að vera hægt að prenta á skjá lista með öllum búnaði í ákveðnu húsi. :heavy_check_mark:
-  - Hafðu notendaviðmótið sem svipuðu sniði og [hér](https://gist.github.com/gestskoli/b407cf29d8d3852e0fc0146aead12e61).
 
 ### Dæmi um aukakröfur
 
