@@ -1,3 +1,5 @@
+Linkur fyrir youtube video: https://youtu.be/WM5MbSypNEQ
+
 ## Verkefnið 
 
 Allur búnaður hefur auðkenni, verðmæti og staðsetningu:
