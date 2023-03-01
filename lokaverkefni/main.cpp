@@ -39,6 +39,7 @@ int main() {
         string daPath = entry.path();
         cout << "\t" << daPath.substr(19) << endl;
     }
+    // hætt að nota kóða frá netinu.
     cout << "Einnig er hægt að búa til þitt eigið skjal með því að einfaldlega skrifa nýja nafnið á skránni\n";
 
     bool geraLoopu = true;
@@ -51,7 +52,14 @@ int main() {
 
         ifstream lesa("lokaverkefni/saves/" + path);
         if (!lesa) {
-            errorMsg("gat ekki lesið skrá");
+            ofstream skrifa("lokaverkefni/saves/" + path);
+            if (!skrifa) {
+                cout << "Náði ekki að búa til skrá með nafninu: " + path + "\n";
+            } else {
+                skrifa.close();
+                geraLoopu = false;
+            }
+
         } else {
             while (lesa >> tegund >> nrIT >> stadsetningIT >> verdIT >> aukaIT) {
                 if (tegund == "Bord") {
@@ -134,14 +142,14 @@ int main() {
             } else {
                 nrIT = stoi(tegund);
                 if (!hg.skodaBunad(nrIT)) {
-                    errorMsg("Fann ekki búnað með númerinu: " + nrIT);
+                    errorMsg("Fann ekki búnað með númerinu: " + to_string(nrIT));
                 }
             }
         } else if (skipun == "eyda") {
             cout << "\n";
             ss >> nrIT;
             if (!hg.eydaBunadi(nrIT)) {
-                errorMsg("Fann ekki búnað með númerinu: " + nrIT);
+                errorMsg("Fann ekki búnað með númerinu: " + to_string(nrIT));
             }
         } else if (skipun == "uppfaera") {
             ss >> tegund;
