@@ -47,7 +47,7 @@ int main() {
         setColor(BLUE);
         cout << "\nSláðu inn hvaða skjal þú vilt vinna við: ";
         setColor(WHITE);
-        cin >> path;
+        getline(cin, path);
 
         ifstream lesa("lokaverkefni/saves/" + path);
         if (!lesa) {
@@ -67,8 +67,10 @@ int main() {
             geraLoopu = false;
         }
         lesa.close();
+        cin.clear();
     } while (geraLoopu);
 
+    cout << "\n";
     saveDefaultColor();
 
     do {
