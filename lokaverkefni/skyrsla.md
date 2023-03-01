@@ -51,3 +51,27 @@ Gagnaklasar:
   - Þegar forritinu er lokað er saveað skjalið fyrir framtíðar notkun. :heavy_check_mark:
 - Ég ætlaði að checkea þegar var bætt inn í listann hvort id-ið væri þegar í listanum :x:
 - Gerða fallegra hash fall. Náði því ekki því það var viljað að væri hægt að finna eitthvern búnað út frá ID og fann bara fallegri hash föll þegar var notað fleirri en eina breytu. :x: 
+
+### Notkun forrits
+- Skráarvinnsla
+  - Upphafi forrits er spurt hvaða skjal notandi vill vinna við.
+  - Hlaðað er upp skjalinu og í endann er save-að skjalið fyrir framtíðar notkun.
+- Skiparnir:
+  - save
+  - continue
+  - skra bunad nr stadsetning verd auka 
+  - help
+  - Uppfæra:
+    - uppfaera stadsetningu nr stadsetning
+    - uppfaera numer nr nyttNr
+    - uppfaera verd nr nyttVerd
+  - eyda nr
+  - Prenta:
+    - prenta nr
+    - prenta herbergi stadsetning
+    - prenta hus hus
+    - prenta allt
+    - prenta bord
+    - prenta skjavarpa
+    - prenta tolvur
+    - prenta stola
