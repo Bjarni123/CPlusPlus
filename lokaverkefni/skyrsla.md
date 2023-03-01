@@ -59,7 +59,9 @@ Gagnaklasar:
 - Skiparnir:
   - save
   - continue
-  - skra bunad nr stadsetning verd auka 
+  - Skrá
+    - skra bunad nr stadsetning verd auka 
+    - skra profunargogn (Skráir inn prófunargognin í 
   - help
   - Uppfæra:
     - uppfaera stadsetningu nr stadsetning
@@ -75,3 +77,4 @@ Gagnaklasar:
     - prenta skjavarpa
     - prenta tolvur
     - prenta stola
+- Ef maður þarf eitthvern tímann hjálp þá er hægt að skrifa inn "help" og það mun sýna þér allar skiparnir, segja þér hvað þær gera og dæmi um hvernig á að nota þær.
